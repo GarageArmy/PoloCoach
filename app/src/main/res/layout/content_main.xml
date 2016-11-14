@@ -16,11 +16,31 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/imageView"
+        android:id="@+id/goal"
         android:src="@drawable/kapu"
         android:layout_alignWithParentIfMissing="false"
-        android:layout_marginBottom="415dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="133dp" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/ball"
+        android:src="@drawable/ball"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@+id/goal"
+        android:layout_marginBottom="280dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gól"
+        android:id="@+id/button"
+        android:layout_below="@+id/goal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="267dp" />
 
 </RelativeLayout>
