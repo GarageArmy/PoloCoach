@@ -29,10 +29,11 @@ public class InGame extends Activity {
     CounterClass timer;
     long pausedTime;
 
-    Player[] players;
 
     int score1, score2 = 0;
     TextView score1Text, score2Text;
+
+    String teams[] = {"DVSE", "asd"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,27 +46,11 @@ public class InGame extends Activity {
         score2Text = (TextView) findViewById(R.id.score2);
 
         playerButtons = new Button[12];
-        players = new Player[12];
-       /* playerButtons[0] = (Button) findViewById(R.id.player1);
-        playerButtons[1] = (Button) findViewById(R.id.player2);
-        playerButtons[2] = (Button) findViewById(R.id.player3);
-        playerButtons[3] = (Button) findViewById(R.id.player4);
-        playerButtons[4] = (Button) findViewById(R.id.player5);
-        playerButtons[5] = (Button) findViewById(R.id.player6);
-        playerButtons[6] = (Button) findViewById(R.id.player7);
-        playerButtons[7] = (Button) findViewById(R.id.player8);
-        playerButtons[8] = (Button) findViewById(R.id.player9);
-        playerButtons[9] = (Button) findViewById(R.id.player10);
-        playerButtons[10] = (Button) findViewById(R.id.player11);
-        playerButtons[11] = (Button) findViewById(R.id.player12);*/
 
         for (int i = 0; i < 12; i++){
             String id = "player" + (i+1);
             int resID = getResources().getIdentifier(id, "id", getPackageName());
             playerButtons[i] = (Button) findViewById(resID);
-            System.out.println(resID);
-            System.out.println(id);
-            players[i] = new Player(playerButtons[i].getText().toString());
 
         }
 
@@ -95,16 +80,17 @@ public class InGame extends Activity {
     public void onClickGoal(View v){
         if (clickedPlayer != null){
             Intent intent = new Intent("com.example.adam.polocoach.MainActivity");
-
-            int num = -1;
+            int team = 0;
             for (int i = 0; i < 12; i++){
                 String id = "player" + (i+1);
                 int resID = getResources().getIdentifier(id, "id", getPackageName());
                 if (resID == clickedPlayer.getId()){
-                    num = i;
+                    team = (i+1) / 12;
+                    break;
                 }
             }
-            intent.putExtra("clickedPlayer", players[num]);
+            intent.putExtra("player", clickedPlayer.getText());
+            intent.putExtra("team", teams[team]);
             startActivity(intent);
         }
     }
@@ -118,7 +104,6 @@ public class InGame extends Activity {
             timer = new CounterClass(pausedTime, 1000);
             paused = true;
         }
-        System.out.println(players[0].shootPosX.get(0));
     }
 
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
