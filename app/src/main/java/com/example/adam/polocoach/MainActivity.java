@@ -6,8 +6,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 
-import java.util.List;
-
 public class MainActivity extends Activity implements View.OnTouchListener{
 
     ImageView ball;
@@ -64,9 +62,11 @@ public class MainActivity extends Activity implements View.OnTouchListener{
     public void onClickGoal(View v){
         db.addActivity( new ActivityObject(team, player, "goal ", x + " " + y));
 
-        List<ActivityObject> objects = db.getAllActivity();
+       /* List<ActivityObject> objects = db.getAllActivity();
         for (ActivityObject activity : objects){
             System.out.println(activity.getId());
-        }
+        }*/
+        //finishActivity(0);
+        finish();
     }
 }

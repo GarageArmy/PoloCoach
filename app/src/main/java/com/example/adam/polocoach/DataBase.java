@@ -37,7 +37,6 @@ public class DataBase extends SQLiteOpenHelper {
                 PLAYER_NAME + " TEXT," +
                 ACTIVITY_NAME + " TEXT," +
                 ACTIVITY_TEXT + " TEXT" + ")";
-        System.out.println(CREATE_CONTACTS_TABLE);
         db.execSQL(CREATE_CONTACTS_TABLE);
     }
     @Override
@@ -50,7 +49,6 @@ public class DataBase extends SQLiteOpenHelper {
 
     public void addActivity(ActivityObject obj) {
         SQLiteDatabase db = this.getWritableDatabase();
-        System.out.println(obj.getPlayer());
         ContentValues values = new ContentValues();
         values.put(TEAM, obj.getTeam());
         values.put(ACTIVITY_NAME, obj.getActivityName());
@@ -62,7 +60,6 @@ public class DataBase extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
-    // Getting one shop
     public ActivityObject getActivity(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.query(TABLE_ACTIVITIES, new String[] { TEAM,
@@ -98,4 +95,29 @@ public class DataBase extends SQLiteOpenHelper {
 // return contact list
         return objList;
     }
+
+
+   /* public List<ActivityObject> getDistinct(String by) {
+        List<ActivityObject> objList = new ArrayList<ActivityObject>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.query(true, "table_activities", new String[] { TEAM,
+                PLAYER_NAME, ACTIVITY_NAME, ACTIVITY_TEXT }, null, null, by, null, null, null);
+// looping through all rows and adding to list
+        if (cursor.moveToFirst()) {
+            do {
+                ActivityObject object = new ActivityObject();
+                object.setId(Integer.parseInt(cursor.getString(0)));
+                object.setTeam(cursor.getString(1));
+                object.setPlayer(cursor.getString(2));
+                object.setActivityName(cursor.getString(3));
+                object.setActivityText(cursor.getString(4));
+// Adding contact to list
+                objList.add(object);
+            } while (cursor.moveToNext());
+        }
+// return contact list
+        return objList;
+    }*/
+
+
 }

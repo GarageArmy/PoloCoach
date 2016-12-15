@@ -1,3 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="3bd97cfefd783e9de1dd1c30574a6adb44b4409b">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-24.0.0_519301e76aac3c47c56dd0e989b1a159896297b1\classes.dex" />
+    </item>
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="e70f608219ed6b974644c333249ab2bb7b71de98">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-24.0.0_e33cef0a892fe98cd33a01d037ab0e623b3c6c98\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Adam\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\24.0.0\support-annotations-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-24.0.0_217b9324338b92d01b4cadfcbd4c1b6955571f59\classes.dex" />
+    </item>
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="0874286cc2fd88d54fdf130e9d5372730da6de97">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-24.0.0_0c48174ca139a4c5f345573bca1d3305f0bee3c7\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Adam\.gradle\caches\modules-2\files-2.1\com.github.PhilJay\MPAndroidChart\v3.0.1\369f9aa48a629b4e92557b37326f42dc3de796e4\MPAndroidChart-v3.0.1.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="369f9aa48a629b4e92557b37326f42dc3de796e4">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\MPAndroidChart-v3.0.1_913a7f3a45818a341a8df0202f86a86a35801416\classes.dex" />
+    </item>
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="894922f67adeaaef51f077a29e315da21a3382d3">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-recyclerview-v7-24.0.0_8d64cf46941bed1688d5ac6c848351f42155d377\classes.dex" />
+    </item>
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="575e2f4f0dc6d9fa499b9c825058a342af7713a0">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_f75539c90017dbdfe91fc0d174ede4013803281e\classes.dex" />
+    </item>
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-24.0.0_33120c364e25ede72b8ceb964c6c263ea412b277\classes.dex" />
+    </item>
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\exploded-aar\com.android.support\support-v4\24.0.0\jars\libs\internal_impl-24.0.0.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-24.0.0_31e816003e20d345879d669c1de0defd3c800be3\classes.dex" />
+    </item>
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="79fb9c077d3affd4774985e7fb9462ab0062d38a">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_f4fe23c556ec3b65e198e8a7c64385f87adbe734\classes.dex" />
+    </item>
+    <item
+        jar="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\exploded-aar\com.android.support\design\24.0.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0"
+        sha1="fc29308a7a8f6d4407b34634eb48fb8b817f9b23">
+        <dex dex="D:\OwnGames\PoloCoach\PoloCoach\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-design-24.0.0_754924651cdf60beef806419afeb8dbfde798b0a\classes.dex" />
+    </item>
+
+</items>
