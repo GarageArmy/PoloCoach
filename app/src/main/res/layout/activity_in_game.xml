@@ -22,7 +22,8 @@
         android:layout_alignParentLeft="true"
         android:scrollbars="vertical"
         android:layout_alignParentStart="true"
-        android:textColor="@color/abc_input_method_navigation_guard" />
+        android:textColor="@color/abc_input_method_navigation_guard"
+        android:onClick="act" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -202,7 +203,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button13"
+        android:id="@+id/player13"
         android:layout_alignTop="@+id/player1"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
@@ -213,9 +214,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button14"
+        android:id="@+id/player14"
         android:textSize="20dp"
-        android:layout_below="@+id/button13"
+        android:layout_below="@+id/player13"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:maxHeight="30dp" />
@@ -224,9 +225,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button15"
+        android:id="@+id/player16"
         android:textSize="20dp"
-        android:layout_below="@+id/button16"
+        android:layout_below="@+id/player15"
         android:layout_alignParentRight="true"
         android:maxHeight="30dp" />
 
@@ -234,7 +235,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button16"
+        android:id="@+id/player15"
         android:textSize="20dp"
         android:layout_alignTop="@+id/player3"
         android:layout_alignParentRight="true"
@@ -245,81 +246,81 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button17"
+        android:id="@+id/player19"
         android:textSize="20dp"
-        android:layout_below="@+id/button18"
-        android:layout_alignLeft="@+id/button15"
+        android:layout_below="@+id/player18"
+        android:layout_alignLeft="@+id/player16"
         android:maxHeight="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button18"
+        android:id="@+id/player18"
         android:textSize="20dp"
-        android:layout_below="@+id/button20"
-        android:layout_alignLeft="@+id/button15"
+        android:layout_below="@+id/player17"
+        android:layout_alignLeft="@+id/player16"
         android:maxHeight="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button19"
+        android:id="@+id/player20"
         android:textSize="20dp"
-        android:layout_below="@+id/button17"
-        android:layout_alignLeft="@+id/button15"
+        android:layout_below="@+id/player19"
+        android:layout_alignLeft="@+id/player16"
         android:maxHeight="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button20"
+        android:id="@+id/player17"
         android:textSize="20dp"
-        android:layout_below="@+id/button15"
-        android:layout_alignLeft="@+id/button15"
-        android:layout_alignStart="@+id/button15"
+        android:layout_below="@+id/player16"
+        android:layout_alignLeft="@+id/player16"
+        android:layout_alignStart="@+id/player16"
         android:maxHeight="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button21"
+        android:id="@+id/player23"
         android:textSize="20dp"
-        android:layout_below="@+id/button22"
-        android:layout_alignLeft="@+id/button19"
+        android:layout_below="@+id/player22"
+        android:layout_alignLeft="@+id/player20"
         android:maxHeight="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button22"
+        android:id="@+id/player22"
         android:textSize="20dp"
         android:layout_alignTop="@+id/player10"
-        android:layout_alignLeft="@+id/button19"
-        android:layout_alignStart="@+id/button19"
+        android:layout_alignLeft="@+id/player20"
+        android:layout_alignStart="@+id/player20"
         android:maxHeight="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button23"
+        android:id="@+id/player24"
         android:textSize="20dp"
-        android:layout_below="@+id/button21"
-        android:layout_alignLeft="@+id/button19"
+        android:layout_below="@+id/player23"
+        android:layout_alignLeft="@+id/player20"
         android:maxHeight="30dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Button"
-        android:id="@+id/button24"
+        android:id="@+id/player21"
         android:textSize="20dp"
-        android:layout_above="@+id/button22"
+        android:layout_above="@+id/player22"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:maxHeight="30dp" />
@@ -354,7 +355,8 @@
         android:textSize="34dp"
         android:width="280dp"
         android:layout_below="@+id/button27"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickLabdaszerzes" />
 
     <Button
         android:layout_width="wrap_content"
@@ -374,7 +376,8 @@
         android:textSize="40dp"
         android:width="280dp"
         android:layout_below="@+id/button29"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="onClickRauszas" />
 
     <Button
         android:layout_width="wrap_content"
@@ -384,7 +387,8 @@
         android:layout_below="@+id/button30"
         android:layout_alignLeft="@+id/button30"
         android:layout_alignStart="@+id/button30"
-        android:textSize="40dp" />
+        android:textSize="40dp"
+        android:onClick="wrongPass" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -566,14 +570,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="AdatBázis"
+        android:text="New Button"
         android:id="@+id/button9"
-        android:layout_below="@+id/player9"
-        android:layout_alignLeft="@+id/button31"
-        android:layout_alignStart="@+id/button31"
-        android:layout_alignRight="@+id/button30"
-        android:layout_alignEnd="@+id/button30"
-        android:textSize="30dp"
-        android:onClick="getDataBase" />
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="reachDataBase" />
 
 </RelativeLayout>

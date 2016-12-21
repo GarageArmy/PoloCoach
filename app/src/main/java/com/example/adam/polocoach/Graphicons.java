@@ -1,78 +1,47 @@
 package com.example.adam.polocoach;
 
-import android.database.Cursor;
-import android.icu.text.SimpleDateFormat;
-import android.icu.util.Calendar;
-import android.net.ParseException;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.RelativeLayout;
 
 import com.github.mikephil.charting.charts.BarChart;
-import com.github.mikephil.charting.components.Description;
+import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
 
 public class Graphicons extends AppCompatActivity {
-    BarChart barChart;
-    ArrayList<String> names = new ArrayList<>();
-    Random random;
-    ArrayList<BarEntry> barEntries;
 
-    DataBase db;
+    BarChart barChart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        db = new DataBase(this);
-        barChart = (BarChart) findViewById(R.id.bargraph);
+        setContentView(R.layout.activity_graphicons);
 
-        createRandomBarGraph();
+        barChart = (BarChart) findViewById(R.id.barChart);
+        /*lineChart = new LineChart(this);
+        RelativeLayout rl = (RelativeLayout) findViewById(R.id.rl);
+        rl.addView(lineChart);*/
 
+        ArrayList<BarEntry> barEntries = new ArrayList<>();
+        barEntries.add(new BarEntry(0, 10));
+        barEntries.add(new BarEntry(1, 15));
+        barEntries.add(new BarEntry(2f, 20));
+        BarDataSet barDataSet = new BarDataSet(barEntries, "asd");
+        ArrayList<String> labels = new ArrayList<>();
+        labels.add("1");
+        labels.add("2");
+        labels.add("3");
+
+        BarData data = new BarData(barDataSet);
+        barChart.setData(data);
+        barChart.invalidate();
     }
-
-    public void createRandomBarGraph(){
-/*
-        List<ActivityObject> activityObjects = db.getAllActivity();
-
-
-        ArrayList<BarEntry> entries = new ArrayList<>();
-
-
-        for (ActivityObject activity : activityObjects){
-            if (activity.getActivityName() == "goal") {
-                if (!names.contains(activity.getPlayer())) {
-                    names.add(activity.getPlayer());
-                    System.out.println(activity.getPlayer());
-                }
-            }
-        }
-        int[] goals = new int[names.size()];
-        for (ActivityObject activity : activityObjects){
-            if (activity.getActivityName() == "goal") {
-                int l = 0;
-                while (names.get(l) != activity.getPlayer())
-                    l++;
-                goals[l]++;
-            }
-        }
-
-        for (int i = 0; i < names.size(); i++){
-            entries.add(new BarEntry(goals[i], i));
-        }
-
-
-        BarDataSet barDataSet = new BarDataSet(barEntries,"Players");
-        BarData barData = new BarData(barDataSet);
-        barChart.setData(barData);
-*/
-    }
-
 
 }

@@ -7,11 +7,13 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.adam.polocoach.Graphicons">
+    tools:context="com.example.adam.polocoach.Graphicons"
+    android:id="@+id/rl">
 
 
     <com.github.mikephil.charting.charts.BarChart
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:id="@+id/bargraph"></com.github.mikephil.charting.charts.BarChart>
+        android:layout_height="match_parent"
+        android:id="@+id/barChart"></com.github.mikephil.charting.charts.BarChart>
 </RelativeLayout>
+

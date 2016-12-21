@@ -8,14 +8,13 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.SystemClock;
-import android.text.Layout;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Chronometer;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -90,7 +89,7 @@ public class InGame extends Activity {
 
     public void onClickGoal(View v){
         if (clickedPlayer != null){
-            Intent intent = new Intent("com.example.adam.polocoach.MainActivity");
+            Intent intent = new Intent("com.example.adam.polocoach.GoalActivity");
             int team = 0;
             for (int i = 0; i < 12; i++){
                 String id = "player" + (i+1);
@@ -103,8 +102,15 @@ public class InGame extends Activity {
             intent.putExtra("player", clickedPlayer.getText());
             intent.putExtra("team", teams[team]);
             startActivity(intent);
-            if (team < 12) score1++;
-            else score2++;
+            if (team == 0){
+                score1++;
+                score1Text.setText(Integer.toString(score1));
+            }
+            else {
+                score2++;
+                score2Text.setText(Integer.toString(score2));
+            }
+
         }
     }
 
@@ -176,15 +182,17 @@ public class InGame extends Activity {
             Button b = (Button) v;
             db.addActivity(new ActivityObject(teams[team], clickedPlayer.getText().toString(), "kiallitva ", playerButtons[Integer.parseInt(b.getText().toString()) - 1].getText().toString()));
         }
+        Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.rl);
         layout.setVisibility(View.GONE);
     }
 
-    public void getDataBase(View v){
+    public void reachDataBase(View v){
         List<ActivityObject> objects = db.getAllActivity();
         for (ActivityObject activity : objects){
             System.out.println(activity.getId() + " " + activity.getTeam() + " " + activity.getPlayer() + " " + activity.getActivityName() + " " + activity.getActivityText());
         }
+        System.out.println(objects.size());
     }
 
     public void wrongPass(View v){
@@ -199,5 +207,37 @@ public class InGame extends Activity {
     public void act(View v){
         Intent intent = new Intent("com.example.adam.polocoach.Graphicons");
         startActivity(intent);
+    }
+
+    public void onClickRauszas(View v){
+        if (clickedPlayer != null){
+            int team = 0;
+            for (int i = 0; i < 12; i++){
+                String id = "player" + (i+1);
+                int resID = getResources().getIdentifier(id, "id", getPackageName());
+                if (resID == clickedPlayer.getId()){
+                    team = (i+1) / 12;
+                    break;
+                }
+            }
+            Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
+            db.addActivity( new ActivityObject(teams[team], clickedPlayer.getText().toString(), "rauszas ", ""));
+        }
+    }
+
+    public void onClickLabdaszerzes(View v){
+        if (clickedPlayer != null){
+            int team = 0;
+            for (int i = 0; i < 12; i++){
+                String id = "player" + (i+1);
+                int resID = getResources().getIdentifier(id, "id", getPackageName());
+                if (resID == clickedPlayer.getId()){
+                    team = (i+1) / 12;
+                    break;
+                }
+            }
+            Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
+            db.addActivity( new ActivityObject(teams[team], clickedPlayer.getText().toString(), "labdaszerzes ", ""));
+        }
     }
 }

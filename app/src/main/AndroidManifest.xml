@@ -18,9 +18,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".GoalActivity">
             <intent-filter>
-                <action android:name="com.example.adam.polocoach.MainActivity" />
+                <action android:name="com.example.adam.polocoach.GoalActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
