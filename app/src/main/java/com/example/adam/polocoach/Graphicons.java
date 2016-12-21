@@ -14,22 +14,22 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Graphicons extends AppCompatActivity {
 
     BarChart barChart;
+    DataBase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_graphicons);
 
+        db = new DataBase(this);
         barChart = (BarChart) findViewById(R.id.barChart);
-        /*lineChart = new LineChart(this);
-        RelativeLayout rl = (RelativeLayout) findViewById(R.id.rl);
-        rl.addView(lineChart);*/
 
-        ArrayList<BarEntry> barEntries = new ArrayList<>();
+        /*ArrayList<BarEntry> barEntries = new ArrayList<>();
         barEntries.add(new BarEntry(0, 10));
         barEntries.add(new BarEntry(1, 15));
         barEntries.add(new BarEntry(2f, 20));
@@ -41,7 +41,20 @@ public class Graphicons extends AppCompatActivity {
 
         BarData data = new BarData(barDataSet);
         barChart.setData(data);
-        barChart.invalidate();
+        barChart.invalidate();*/
+
+        createDiag();
+    }
+
+    private void createDiag(){
+        ArrayList<BarEntry> barEntries = new ArrayList<>();
+
+        List<ActivityObject> objects = db.getAllActivity();
+        ArrayList<String> names = new ArrayList<>();
+
+        for (ActivityObject activity : objects){
+
+        }
     }
 
 }

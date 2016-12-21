@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.design.widget.TabLayout;
 import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
@@ -41,13 +42,22 @@ public class InGame extends Activity {
 
     String whichActivity;
 
+    Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_game);
-        db = new DataBase(this);
 
-        historyText  = (TextView) findViewById(R.id.historyText);
+        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+        tabs.addTab(tabs.newTab().setText("Tab 1"));
+        tabs.addTab(tabs.newTab().setText("Tab 2"));
+        tabs.addTab(tabs.newTab().setText("Tab 3"));
+
+
+        db = new DataBase(this);
+        toast = new Toast(this);
+
 
         score1Text = (TextView) findViewById(R.id.score1);
         score2Text = (TextView) findViewById(R.id.score2);
@@ -60,8 +70,6 @@ public class InGame extends Activity {
             playerButtons[i] = (Button) findViewById(resID);
 
         }
-
-        historyText.setMovementMethod(new ScrollingMovementMethod());
 
         textViewTime = (TextView) findViewById(R.id.textViewTime);
         textViewTime.setText("03:00");
@@ -182,7 +190,8 @@ public class InGame extends Activity {
             Button b = (Button) v;
             db.addActivity(new ActivityObject(teams[team], clickedPlayer.getText().toString(), "kiallitva ", playerButtons[Integer.parseInt(b.getText().toString()) - 1].getText().toString()));
         }
-        Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
+        toast = Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
+        toast.show();
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.rl);
         layout.setVisibility(View.GONE);
     }
@@ -192,7 +201,6 @@ public class InGame extends Activity {
         for (ActivityObject activity : objects){
             System.out.println(activity.getId() + " " + activity.getTeam() + " " + activity.getPlayer() + " " + activity.getActivityName() + " " + activity.getActivityText());
         }
-        System.out.println(objects.size());
     }
 
     public void wrongPass(View v){
@@ -220,7 +228,8 @@ public class InGame extends Activity {
                     break;
                 }
             }
-            Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
+            toast = Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
+            toast.show();
             db.addActivity( new ActivityObject(teams[team], clickedPlayer.getText().toString(), "rauszas ", ""));
         }
     }
@@ -236,7 +245,8 @@ public class InGame extends Activity {
                     break;
                 }
             }
-            Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
+            toast = Toast.makeText(this, "Action stored", Toast.LENGTH_LONG);
+            toast.show();
             db.addActivity( new ActivityObject(teams[team], clickedPlayer.getText().toString(), "labdaszerzes ", ""));
         }
     }

@@ -3,11 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.adam.polocoach.InGame">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -22,8 +36,7 @@
         android:layout_alignParentLeft="true"
         android:scrollbars="vertical"
         android:layout_alignParentStart="true"
-        android:textColor="@color/abc_input_method_navigation_guard"
-        android:onClick="act" />
+        android:textColor="@color/abc_input_method_navigation_guard" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,19 +51,6 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:textColor="@color/abc_input_method_navigation_guard" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/historyText"
-        android:layout_centerHorizontal="true"
-        android:text="History"
-        android:layout_alignParentTop="true"
-        android:textSize="30dp"
-        android:textColor="@color/abc_input_method_navigation_guard"
-        android:textAlignment="center" />
 
     <Button
         android:layout_width="wrap_content"
@@ -332,9 +332,9 @@
         android:id="@+id/button26"
         android:textSize="40dp"
         android:width="280dp"
-        android:layout_centerHorizontal="true"
-        android:layout_alignTop="@+id/player1"
-        android:onClick="onClickGoal" />
+        android:onClick="onClickGoal"
+        android:layout_above="@+id/goalButton"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -343,9 +343,9 @@
         android:id="@+id/button27"
         android:textSize="40dp"
         android:width="280dp"
-        android:layout_below="@+id/button26"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickKiallit" />
+        android:onClick="onClickKiallit"
+        android:layout_above="@+id/button26"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -354,9 +354,9 @@
         android:id="@+id/button28"
         android:textSize="34dp"
         android:width="280dp"
-        android:layout_below="@+id/button27"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickLabdaszerzes" />
+        android:onClick="onClickLabdaszerzes"
+        android:layout_above="@+id/button9"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -365,7 +365,7 @@
         android:id="@+id/button29"
         android:textSize="40dp"
         android:width="280dp"
-        android:layout_below="@+id/button28"
+        android:layout_above="@+id/button27"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -375,20 +375,19 @@
         android:id="@+id/button30"
         android:textSize="40dp"
         android:width="280dp"
-        android:layout_below="@+id/button29"
-        android:layout_centerHorizontal="true"
-        android:onClick="onClickRauszas" />
+        android:onClick="onClickRauszas"
+        android:layout_above="@+id/button29"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Rossz passz"
         android:id="@+id/button31"
-        android:layout_below="@+id/button30"
-        android:layout_alignLeft="@+id/button30"
-        android:layout_alignStart="@+id/button30"
         android:textSize="40dp"
-        android:onClick="wrongPass" />
+        android:onClick="wrongPass"
+        android:layout_above="@+id/button28"
+        android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -413,7 +412,7 @@
         android:textSize="40dp"
         android:width="280dp"
         android:onClick="onClickGoal"
-        android:layout_above="@+id/button26"
+        android:layout_above="@+id/button31"
         android:layout_centerHorizontal="true" />
 
     <RelativeLayout
@@ -423,7 +422,8 @@
         android:layout_below="@+id/textViewTime"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_above="@+id/goalButton">
+        android:layout_above="@+id/player1"
+        android:onClick="act">
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -575,5 +575,15 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:onClick="reachDataBase" />
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        android:layout_alignBottom="@+id/tabs"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
