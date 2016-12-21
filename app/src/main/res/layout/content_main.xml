@@ -29,11 +29,16 @@
         android:layout_height="wrap_content"
         android:id="@+id/ball"
         android:src="@drawable/ball"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentTop="false"
         android:layout_centerHorizontal="true"
         android:layout_alignBottom="@+id/goal"
         android:layout_marginBottom="280dp"
-        android:maxWidth="30dp" />
+        android:maxWidth="60dp"
+        android:maxHeight="60dp"
+        android:accessibilityLiveRegion="none"
+        android:adjustViewBounds="true"
+        android:backgroundTint="@android:color/transparent"
+        android:background="@null" />
 
     <Button
         android:layout_width="wrap_content"
