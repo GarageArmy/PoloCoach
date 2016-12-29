@@ -2,45 +2,59 @@ package com.example.adam.polocoach;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.ActionBar;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
-import android.text.method.ScrollingMovementMethod;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
+import com.mikepenz.materialdrawer.Drawer;
+import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.holder.BadgeStyle;
+import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
+
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-public class InGame extends Activity {
+public class InGame extends AppCompatActivity {
 
     DataBase db;
-
-    TextView historyText;
     public Button clickedPlayer;
 
     Button[] playerButtons;
 
     boolean paused = true;
     TextView textViewTime;
-    CounterClass timer;
+    //CounterClass timer;
     long pausedTime;
-
-
-    int score1, score2 = 0;
-    TextView score1Text, score2Text;
 
     String teams[] = {"DVSE", "asd"};
 
     String whichActivity;
+    CounterClass timer;
 
     Toast toast;
 
@@ -48,35 +62,66 @@ public class InGame extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_in_game);
-
-        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
-        tabs.addTab(tabs.newTab().setText("Tab 1"));
-        tabs.addTab(tabs.newTab().setText("Tab 2"));
-        tabs.addTab(tabs.newTab().setText("Tab 3"));
-
-
         db = new DataBase(this);
         toast = new Toast(this);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        PrimaryDrawerItem item1 = new PrimaryDrawerItem().withName("Home").withIcon(R.drawable.ball).withIdentifier(1);
+        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("Statisztika");
 
-        score1Text = (TextView) findViewById(R.id.score1);
-        score2Text = (TextView) findViewById(R.id.score2);
 
-        playerButtons = new Button[12];
+        AccountHeader headerResult = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.drawable.background_material_red)
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                    @Override
+                    public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
+                        return false;
+                    }
+                })
+                .build();
+        new DrawerBuilder()
+                .withActivity(this)
+                .withToolbar(toolbar)
+                .withActionBarDrawerToggle(true)
+                .withActionBarDrawerToggleAnimated(true)
+                .addDrawerItems(item1).withAccountHeader(headerResult)
+                .addDrawerItems(item2)
+                .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
+                    @Override
+                    public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
+                        switch((int)drawerItem.getIdentifier()){
+                            case 1: finish();
+                                break;
+                            case 2: {
+                                Intent intent = new Intent("com.example.adam.polocoach.Graphicons");
+                                startActivity(intent);
+                            } break;
 
-        for (int i = 0; i < 12; i++){
+                        }
+                        return true;
+                    }
+                })
+                .build();
+
+
+
+        playerButtons = new Button[28];
+
+        for (int i = 0; i < 28; i++){
             String id = "player" + (i+1);
             int resID = getResources().getIdentifier(id, "id", getPackageName());
             playerButtons[i] = (Button) findViewById(resID);
 
         }
 
-        textViewTime = (TextView) findViewById(R.id.textViewTime);
+        /*textViewTime = (TextView) findViewById(R.id.textViewTime);
         textViewTime.setText("03:00");
-        timer = new CounterClass(180000, 1000);
+        timer = new CounterClass(180000 * 5, 1000);*/
 
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.rl);
-        layout.setVisibility(View.GONE);
+        /*RelativeLayout layout = (RelativeLayout) findViewById(R.id.rl);
+        layout.setVisibility(View.GONE);*/
 
     }
 
@@ -99,26 +144,17 @@ public class InGame extends Activity {
         if (clickedPlayer != null){
             Intent intent = new Intent("com.example.adam.polocoach.GoalActivity");
             int team = 0;
-            for (int i = 0; i < 12; i++){
+            for (int i = 0; i < 28; i++){
                 String id = "player" + (i+1);
                 int resID = getResources().getIdentifier(id, "id", getPackageName());
                 if (resID == clickedPlayer.getId()){
-                    team = (i+1) / 12;
+                    team = (i+1) / 15;
                     break;
                 }
             }
             intent.putExtra("player", clickedPlayer.getText());
             intent.putExtra("team", teams[team]);
             startActivity(intent);
-            if (team == 0){
-                score1++;
-                score1Text.setText(Integer.toString(score1));
-            }
-            else {
-                score2++;
-                score2Text.setText(Integer.toString(score2));
-            }
-
         }
     }
 
@@ -173,11 +209,11 @@ public class InGame extends Activity {
 
     public void onClickKiallitFrom(View v){
         int team = 0;
-        for (int i = 0; i < 12; i++){
+        for (int i = 0; i < 28; i++){
             String id = "player" + (i+1);
             int resID = getResources().getIdentifier(id, "id", getPackageName());
             if (resID == clickedPlayer.getId()){
-                team = (i+1) / 12;
+                team = (i+1) / 15;
                 break;
             }
         }
@@ -220,11 +256,11 @@ public class InGame extends Activity {
     public void onClickRauszas(View v){
         if (clickedPlayer != null){
             int team = 0;
-            for (int i = 0; i < 12; i++){
+            for (int i = 0; i < 28; i++){
                 String id = "player" + (i+1);
                 int resID = getResources().getIdentifier(id, "id", getPackageName());
                 if (resID == clickedPlayer.getId()){
-                    team = (i+1) / 12;
+                    team = (i+1) / 15;
                     break;
                 }
             }
@@ -237,11 +273,11 @@ public class InGame extends Activity {
     public void onClickLabdaszerzes(View v){
         if (clickedPlayer != null){
             int team = 0;
-            for (int i = 0; i < 12; i++){
+            for (int i = 0; i < 28; i++){
                 String id = "player" + (i+1);
                 int resID = getResources().getIdentifier(id, "id", getPackageName());
                 if (resID == clickedPlayer.getId()){
-                    team = (i+1) / 12;
+                    team = (i+1) / 15;
                     break;
                 }
             }
@@ -249,5 +285,35 @@ public class InGame extends Activity {
             toast.show();
             db.addActivity( new ActivityObject(teams[team], clickedPlayer.getText().toString(), "labdaszerzes ", ""));
         }
+    }
+
+
+
+
+    //PLAYER CHOOSER
+
+    public void emptyInputField(View v){
+        EditText a = (EditText) v;
+        if (!a.getText().toString().contains("player"))
+            a.setText("");
+    }
+
+    public void finishSelection(View v){
+        RelativeLayout a = (RelativeLayout) findViewById(R.id.playerselection);
+        a.setVisibility(View.GONE);
+
+        a = (RelativeLayout) findViewById(R.id.secondary);
+        a.setVisibility(View.VISIBLE);
+        for (int i = 0; i < 28; i++){
+            String id = "p" + (i+1);
+            int resID = getResources().getIdentifier(id, "id", getPackageName());
+            playerButtons[i].setText(((EditText) findViewById(resID)).getText());
+            System.out.println(i);
+
+        }
+        int resID = getResources().getIdentifier("team1", "id", getPackageName());
+        teams[0] = ((EditText)findViewById(resID)).getText().toString();
+        resID = getResources().getIdentifier("team2", "id", getPackageName());
+        teams[1] = ((EditText)findViewById(resID)).getText().toString();
     }
 }
